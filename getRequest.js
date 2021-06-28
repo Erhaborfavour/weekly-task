@@ -1,10 +1,11 @@
 const http = require('http');
-let data = "";
-http.get("http://jsonplaceholder.typicode.com/users",(res)=>{
-    res.on('data',(fidel) => {
-        data += fidel;
+let data = '';
+http.get('http://jsonplaceholder.typicode.com/users',(request)=>{
+    request.on('data',(nugget) => {
+
+        data += nugget;
     });
-    res.on('end', () => {
+    request.on('end', () => {
          data = JSON.parse(data)
         for (let i = 0; i < data.length; i++) {
             console.log(data[i].name);   
